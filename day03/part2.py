@@ -19,9 +19,6 @@ def count_occurrences(input_list) -> dict:
 
 def compute(s: str) -> int:
     lines = s.splitlines()
-    occurences = []
-    oxygen_values = []
-    co2_values = []
     ox_values_to_consider = lines
     co_values_to_consider = lines
 
