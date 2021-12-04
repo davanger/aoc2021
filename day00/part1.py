@@ -5,9 +5,7 @@ import os.path
 
 import pytest
 
-from support import timing
-
-INPUT_TXT = os.path.join(os.path.dirname(__file__), 'input.txt')
+INPUT_TXT = os.path.join(os.path.dirname(__file__), "input.txt")
 
 
 def compute(s: str) -> int:
@@ -22,16 +20,14 @@ def compute(s: str) -> int:
     return 0
 
 
-INPUT_S = '''\
+INPUT_S = """\
 
-'''
+"""
 
 
 @pytest.mark.parametrize(
-    ('input_s', 'expected'),
-    (
-        (INPUT_S, 1),
-    ),
+    ("input_s", "expected"),
+    ((INPUT_S, 1),),
 )
 def test(input_s: str, expected: int) -> None:
     assert compute(input_s) == expected
@@ -39,14 +35,14 @@ def test(input_s: str, expected: int) -> None:
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument('data_file', nargs='?', default=INPUT_TXT)
+    parser.add_argument("data_file", nargs="?", default=INPUT_TXT)
     args = parser.parse_args()
 
-    with open(args.data_file) as f, timing():
+    with open(args.data_file) as f:
         print(compute(f.read()))
 
     return 0
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     raise SystemExit(main())
